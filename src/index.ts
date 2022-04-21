@@ -1,5 +1,4 @@
 import { registerSharedWorker, SharedWorker } from "ava/plugin"
-import { packageDirectorySync } from "pkg-dir"
 import path from "path"
 import { Except } from "type-fest"
 
@@ -12,8 +11,8 @@ export const registerSharedTypeScriptWorker = <Data = unknown>(
   options: RegisterSharedTypeScriptWorkerOptions<Data>
 ) => {
   const loaderFilename = path.resolve(
-    packageDirectorySync(),
-    "src/load-worker.mjs"
+    path.dirname(__filename),
+    "load-worker.mjs"
   )
 
   const resolvedFilename =

@@ -51,7 +51,5 @@
     "ava": ">=4.0.0",
     "esbuild-register": ">=3.0.0"
   },
-  "dependencies": {
-    "pkg-dir": "6.0.1"
-  }
+  "dependencies": {}
 }

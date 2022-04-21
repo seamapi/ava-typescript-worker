@@ -7,7 +7,7 @@
     "baseUrl": "./src",
     "target": "es5",
     "lib": ["esnext"],
-    "allowJs": false,
+    "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
