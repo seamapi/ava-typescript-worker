@@ -1,35 +1,35 @@
-import test from 'ava'
-import { registerSharedTypeScriptWorker } from 'index'
-import path from 'path'
+import test from "ava"
+import { registerSharedTypeScriptWorker } from "index"
+import path from "path"
 
-test('registers worker', async t => {
+test("registers worker", async (t) => {
   const worker = registerSharedTypeScriptWorker({
-    filename: path.resolve('tests/workers/random.worker.ts'),
+    filename: path.resolve("tests/workers/random.worker.ts"),
   })
 
   const msg = await worker.subscribe().next()
-  t.is(typeof msg.value.data, 'string')
+  t.is(typeof msg.value.data, "string")
 })
 
-test('retains initialData', async t => {
+test("retains initialData", async (t) => {
   const worker = registerSharedTypeScriptWorker({
-    filename: path.resolve('tests/workers/echo-initial-data.worker.ts'),
+    filename: path.resolve("tests/workers/echo-initial-data.worker.ts"),
     initialData: {
-      foo: 'bar'
-    }
+      foo: "bar",
+    },
   })
 
   const msg = await worker.subscribe().next()
   t.deepEqual(msg.value.data, {
-    foo: 'bar'
+    foo: "bar",
   })
 })
 
-test('works with URL', async t => {
+test("works with URL", async (t) => {
   const worker = registerSharedTypeScriptWorker({
-    filename: new URL(`file:${path.resolve('tests/workers/random.worker.ts')}`),
+    filename: new URL(`file:${path.resolve("tests/workers/random.worker.ts")}`),
   })
 
   const msg = await worker.subscribe().next()
-  t.is(typeof msg.value.data, 'string')
+  t.is(typeof msg.value.data, "string")
 })
