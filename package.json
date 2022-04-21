@@ -1,0 +1,34 @@
+{
+  "name": "ava-typescript-worker",
+  "version": "1.0.0",
+  "description": "🪄 register shared Typescript workers with AVA",
+  "keywords": [
+    "🪄",
+    "ava",
+    "typescript",
+    "worker",
+    "esbuild"
+  ],
+  "main": "index.js",
+  "repository": "git@github.com:seamapi/ava-typescript-worker.git",
+  "author": "Max Isom <hi@maxisom.me>",
+  "license": "MIT",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.25",
+    "ava": "4.2.0",
+    "esbuild": "0.14.37",
+    "esbuild-register": "3.3.2",
+    "type-fest": "2.12.2",
+    "typescript": "4.6.3"
+  },
+  "peerDependencies": {
+    "ava": ">=4.0.0",
+    "esbuild-register": ">=3.0.0"
+  },
+  "dependencies": {
+    "pkg-dir": "6.0.1"
+  }
+}
