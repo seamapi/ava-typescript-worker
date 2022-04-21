@@ -9,12 +9,27 @@
     "worker",
     "esbuild"
   ],
-  "main": "index.js",
+  "sideEffects": false,
+  "main": "./cjs-wrapper.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./cjs-wrapper.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "cjs-wrapper.js"
+  ],
   "repository": "git@github.com:seamapi/ava-typescript-worker.git",
   "author": "Max Isom <hi@maxisom.me>",
   "license": "MIT",
   "scripts": {
     "test": "ava",
+    "build": "tsup",
     "format": "prettier -w .",
     "format:check": "prettier --check ."
   },
@@ -24,6 +39,7 @@
     "esbuild": "0.14.37",
     "esbuild-register": "3.3.2",
     "prettier": "2.6.2",
+    "tsup": "5.12.6",
     "type-fest": "2.12.2",
     "typescript": "4.6.3"
   },
