@@ -18,15 +18,16 @@ jobs:
         with:
           node-version: "14.x"
           registry-url: "https://registry.npmjs.org"
+          cache: "yarn"
       - name: Install dependencies
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm install
+        run: yarn install
       - name: Build NPM package
-        run: npm run build
+        run: yarn build
 
       - name: Test
-        run: npm run test
+        run: yarn test
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
