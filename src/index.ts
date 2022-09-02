@@ -23,7 +23,9 @@ export const registerSharedTypeScriptWorker = <Data = unknown>(
   return registerSharedWorker<Data>({
     ...options,
     filename: new URL(
-      `file:${loaderFilename}#${encodeURIComponent(resolvedFilename)}`
+      `file:${loaderFilename}#${encodeURIComponent(
+        options.filename.toString()
+      )}`
     ),
     supportedProtocols: ["ava-4"],
     initialData: {
