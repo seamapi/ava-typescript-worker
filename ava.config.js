@@ -1,5 +1,5 @@
 module.exports = {
   files: ["tests/**/*.test.ts"],
   extensions: ["ts"],
-  require: ["esbuild-register"],
+  nodeArguments: ["--loader=tsx"],
 }

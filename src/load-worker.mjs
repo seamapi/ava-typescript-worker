@@ -1,4 +1,4 @@
-import "esbuild-register"
+import "@esbuild-kit/cjs-loader"
 import { createRequire } from "node:module"
 
 const require = createRequire(import.meta.url)
