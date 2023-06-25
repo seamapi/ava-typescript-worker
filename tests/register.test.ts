@@ -44,6 +44,8 @@ test("mirrors AVA's behavior of loading a worker multiple times for different UR
     },
   })
 
+  const msg1Promise = worker1.subscribe().next()
+
   const worker2 = registerSharedTypeScriptWorker({
     filename: new URL(
       `file:${path.resolve("tests/workers/echo-initial-data.worker.ts")}#2`
@@ -53,8 +55,9 @@ test("mirrors AVA's behavior of loading a worker multiple times for different UR
     },
   })
 
-  const msg1 = await worker1.subscribe().next()
-  const msg2 = await worker2.subscribe().next()
+  const msg2Promise = worker2.subscribe().next()
+
+  const [msg1, msg2] = await Promise.all([msg1Promise, msg2Promise])
 
   t.is(msg1.value.data.id, 1)
   t.is(msg2.value.data.id, 2)
