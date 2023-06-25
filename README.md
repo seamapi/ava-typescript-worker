@@ -2,7 +2,7 @@
 
 [AVA](https://github.com/avajs/ava) has a really cool feature called [shared workers](https://github.com/avajs/ava/blob/843644b10fa2d3a9e6449f6022c40119c22fc9cf/docs/recipes/shared-workers.md).
 
-But when using TypeScript and AVA with on-the-fly transpilation with something like [esbuild-register](https://github.com/egoist/esbuild-register), loaded worker files are not transpiled--meaning you're limited to just using Javascript.
+But when using TypeScript and AVA with on-the-fly transpilation with something like [tsx](https://www.npmjs.com/package/tsx), loaded worker files are not transpiled--meaning you're limited to just using Javascript.
 
 This library fixes that and allows you to register and load TypeScript workers.
 
